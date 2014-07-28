@@ -25,26 +25,14 @@ class ArrayProvider implements QueryableProvider
         return null;
     }
 
-    public function where($field, $value=null)
+    public function where($expression)
     {
         if($this->any()) {
-            $result = [];
-
-            if($value === null) {
-               foreach($this->array as $val) {
-                   if($val === $field) {
-                       $result[] = $field;
-                   }
-               }
-            } else {
-                foreach($this->array as $key => $val) {
-                    if($key === $field && $val === $value) {
-                        $result[$key] = $val;
-                    }
-                }
+            if(is_callable($expression)) {
+                $this->array = call_user_func($expression, $this->array);
             }
 
-            return $result;
+            return new ArrayProvider($this->array);
         }
 
         return [];

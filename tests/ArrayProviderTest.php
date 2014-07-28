@@ -1,5 +1,6 @@
 <?php
 use LinuxDoku\Queryable\Queryable;
+use LinuxDoku\Queryable\QueryableProvider;
 
 class ArrayProviderTest extends PHPUnit_Framework_TestCase
 {
@@ -29,5 +30,23 @@ class ArrayProviderTest extends PHPUnit_Framework_TestCase
         $array = ['test1', 'test2'];
         $queryable = Queryable::create($array);
         $this->assertTrue($queryable->firstOrDefault() === 'test1');
+    }
+
+    public function testWhereExpression()
+    {
+        $array = ['my' => 'option', 'my' => 'second'];
+        $queryable = Queryable::create($array);
+        $result = $queryable->where(function($collection) {
+            $result = [];
+            foreach($collection as $key => $value) {
+                if($key === 'my') {
+                    $result[] = $value;
+                }
+            }
+            return $result;
+        });
+
+        $this->assertTrue($result instanceof QueryableProvider);
+        $this->assertTrue($result->any());
     }
 }

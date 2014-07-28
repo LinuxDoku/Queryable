@@ -1,0 +1,10 @@
+{
+    "require": {
+        "phpunit/phpunit": "4.x"
+    },
+    "autoload": {
+        "psr-4": {
+            "LinuxDoku\\Queryable\\": "src"
+        }
+    }
+}

@@ -6,10 +6,19 @@ use LinuxDoku\Queryable\QueryableProvider;
 class ArrayProvider implements QueryableProvider
 {
     protected $array;
+    protected $arrayValues;
 
     public function __construct(array $collection = [])
     {
         $this->array = $collection;
+    }
+
+    protected function getArrayValues()
+    {
+        if($this->arrayValues === null) {
+            $this->arrayValues = array_values($this->array);
+        }
+        return $this->arrayValues;
     }
 
     public function count()
@@ -26,6 +35,14 @@ class ArrayProvider implements QueryableProvider
     {
         if($this->any()) {
             return $this->array[0];
+        }
+        return null;
+    }
+
+    public function lastOrDefault()
+    {
+        if($this->any()) {
+            return $this->getArrayValues()[$this->count() - 1];
         }
         return null;
     }

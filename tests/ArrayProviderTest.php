@@ -39,6 +39,13 @@ class ArrayProviderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($queryable->firstOrDefault() === 'test1');
     }
 
+    public function testLastOrDefaultWithNamedKeys()
+    {
+        $array = ['one' => 1, 'two' => 2];
+        $queryable = Queryable::create($array);
+        $this->assertTrue($queryable->lastOrDefault() === 2);
+    }
+
     public function testWhereExpressionLambda()
     {
         $array = ['my' => 'option', 'my' => 'second'];

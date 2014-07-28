@@ -39,7 +39,7 @@ class ArrayProviderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($queryable->firstOrDefault() === 'test1');
     }
 
-    public function testWhereExpression()
+    public function testWhereExpressionLambda()
     {
         $array = ['my' => 'option', 'my' => 'second'];
         $queryable = Queryable::create($array);

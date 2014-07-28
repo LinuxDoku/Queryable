@@ -5,16 +5,16 @@ use LinuxDoku\Queryable\Provider\ArrayProvider;
 
 class Queryable
 {
-    public static $providerMap = [
+    protected static $providerMap = [
         'array' => ArrayProvider::class
     ];
 
     /**
-     * Create a new Queryable instance of a collection.
+     * Create a new QueryableProvider instance for a collection.
      *
      * @param $collection Mixed collection to query.
      * @throws Exception when no suitable provider is found.
-     * @return \LinuxDoku\Queryable\Queriable
+     * @return \LinuxDoku\Queryable\QueryableProvider
      */
     public static function create($collection)
     {
@@ -25,5 +25,15 @@ class Queryable
         }
 
         throw new Exception(sprintf('No suitable provider found for type "%s"!', gettype($collection)));
+    }
+
+    /**
+     * Register a new provider implementation.
+     *
+     * @param $type string type of the handled collection.
+     * @param $provider string Full qualified namespace to the provider implementation.
+     */
+    public static function addProvider($type, $provider) {
+        static::$providerMap[$type] = $provider;
     }
 }

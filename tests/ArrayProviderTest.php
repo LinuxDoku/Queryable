@@ -4,6 +4,13 @@ use LinuxDoku\Queryable\QueryableProvider;
 
 class ArrayProviderTest extends PHPUnit_Framework_TestCase
 {
+    public function testCount()
+    {
+        $array = ['a', 'b'];
+        $queryable = Queryable::create($array);
+        $this->assertSame($queryable->count(), 2);
+    }
+
     public function testAnyWithElements()
     {
         $arrayWithElements = ['test', 'test2', 'test3'];

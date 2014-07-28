@@ -12,9 +12,14 @@ class ArrayProvider implements QueryableProvider
         $this->array = $collection;
     }
 
+    public function count()
+    {
+        return count($this->array);
+    }
+
     public function any()
     {
-        return count($this->array) !== 0;
+        return $this->count() !== 0;
     }
 
     public function firstOrDefault()

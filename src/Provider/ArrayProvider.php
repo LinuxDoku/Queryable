@@ -7,7 +7,7 @@ class ArrayProvider implements QueryableProvider
 {
     protected $array;
 
-    public function __construct(array $collection)
+    public function __construct(array $collection = [])
     {
         $this->array = $collection;
     }
@@ -40,6 +40,6 @@ class ArrayProvider implements QueryableProvider
             return new ArrayProvider($this->array);
         }
 
-        return [];
+        return new ArrayProvider();
     }
 }

@@ -4,7 +4,7 @@ namespace LinuxDoku\Queryable\Expression;
 interface Expression
 {
     public function equals($left, $right);
-    public function notEquals($left, $right);
+    public function notEqual($left, $right);
 
     public function greaterThan($left, $right);
     public function greaterThanOrEqual($left, $right);

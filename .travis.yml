@@ -6,4 +6,7 @@ php:
   - 5.4
   - hhvm
 
+install:
+  - composer update
+
 script: phpunit tests

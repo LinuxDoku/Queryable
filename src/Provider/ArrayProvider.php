@@ -80,13 +80,4 @@ class ArrayProvider extends BaseProvider
     {
         return $this->array;
     }
-
-    public function at($index)
-    {
-        if($this->any() && $this->count() >= $index) {
-            $this->array[$index];
-        }
-
-        return null;
-    }
 }

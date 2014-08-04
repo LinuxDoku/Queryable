@@ -22,7 +22,7 @@ abstract class BaseProvider implements QueryableProvider, Iterator, Countable {
      */
     public function current()
     {
-        return $this->at($this->iterator);
+        return $this->toArray()[$this->iterator];
     }
 
     /**

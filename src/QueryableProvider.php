@@ -9,7 +9,6 @@ interface QueryableProvider
 
     public function firstOrDefault();
     public function lastOrDefault();
-    public function at($index);
     public function where($expression);
 
     public function toArray();

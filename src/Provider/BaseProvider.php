@@ -2,6 +2,7 @@
 namespace LinuxDoku\Queryable\Provider;
 
 use ArrayAccess;
+use Iterator;
 use LinuxDoku\Queryable\QueryableProvider;
 
 /**
@@ -9,6 +10,6 @@ use LinuxDoku\Queryable\QueryableProvider;
  *
  * @package LinuxDoku\Queryable\Provider
  */
-abstract class BaseProvider implements QueryableProvider, ArrayAccess {
+abstract class BaseProvider implements QueryableProvider, ArrayAccess, Iterator {
 
 }

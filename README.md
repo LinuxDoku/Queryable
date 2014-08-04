@@ -4,5 +4,5 @@ Some thoughts on a Linq like implementation in PHP.
 ## Run tests
 ```
 composer update
-php vendor/bin/phpunit tests/
+php vendor/bin/phpunit -c phpunit.xml
 ```

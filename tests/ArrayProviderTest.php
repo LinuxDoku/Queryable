@@ -70,4 +70,13 @@ class ArrayProviderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($result instanceof QueryableProvider);
         $this->assertTrue($result->any());
     }
+
+    public function testArrayAccess() {
+        $array = ['one', 'two', 'three'];
+        $queryable = Queryable::create($array);
+
+        $this->assertTrue($queryable[0] === 'one');
+        $this->assertTrue($queryable[2] === 'three');
+        $this->assertTrue(isset($queryable[1]));
+    }
 }

@@ -7,6 +7,6 @@ php:
   - hhvm
 
 install:
-  - composer update
+  - composer install
 
 script: phpunit tests

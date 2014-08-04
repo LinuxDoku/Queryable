@@ -79,4 +79,16 @@ class ArrayProviderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($queryable[2] === 'three');
         $this->assertTrue(isset($queryable[1]));
     }
+
+    public function testIterator() {
+        $array = [0, 1, 2];
+        $queryable = Queryable::create($array);
+
+        $i = 0;
+        foreach($queryable as $number) {
+            var_dump($number);
+            $this->assertTrue($i === $number);
+            $i++;
+        }
+    }
 }

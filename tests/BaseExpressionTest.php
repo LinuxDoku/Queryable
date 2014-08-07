@@ -17,4 +17,11 @@ class BaseExpressionTest extends PHPUnit_Framework_TestCase {
         $baseExpression = new BaseExpression();
         $this->assertFalse($queryable->any($baseExpression->equals(5)));
     }
+
+    public function testExpressionGreaterThanOrEqual() {
+        $array = [1, 2, 3];
+        $queryable = Queryable::create($array);
+        $baseExpression = new BaseExpression();
+        $this->assertTrue($queryable->any($baseExpression->greaterThanOrEqual(1)));
+    }
 }

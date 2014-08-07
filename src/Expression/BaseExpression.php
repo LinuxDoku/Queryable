@@ -39,21 +39,29 @@ class BaseExpression implements Expression {
 
     public function greaterThan($left, $right=null)
     {
-        // TODO: Implement greaterThan() method.
+        return $this->conditionalIterator(function($value) use ($left) {
+            return $value > $left;
+        });
     }
 
     public function greaterThanOrEqual($left, $right=null)
     {
-        // TODO: Implement greaterThanOrEqual() method.
+        return $this->conditionalIterator(function($value) use ($left) {
+            return $value >= $left;
+        });
     }
 
     public function lessThan($left, $right=null)
     {
-        // TODO: Implement lessThan() method.
+        return $this->conditionalIterator(function($value) use ($left) {
+            return $value < $left;
+        });
     }
 
     public function lessThanOrEqual($left, $right=null)
     {
-        // TODO: Implement lessThanOrEqual() method.
+        return $this->conditionalIterator(function($value) use ($left) {
+            return $value <= $left;
+        });
     }
 }

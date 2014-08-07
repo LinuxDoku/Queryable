@@ -7,8 +7,8 @@ interface QueryableProvider
     public function any();
 
 
-    public function firstOrDefault();
-    public function lastOrDefault();
+    public function firstOrDefault($expression=null);
+    public function lastOrDefault($expression=null);
     public function where($expression);
 
     public function toArray();

@@ -47,17 +47,23 @@ class ArrayProvider extends BaseProvider
         return $this->count() !== 0;
     }
 
-    public function firstOrDefault()
+    public function firstOrDefault($expression=null)
     {
         if($this->any()) {
+            if($expression !== null) {
+                return $this->where($expression)->firstOrDefault();
+            }
             return $this->array[0];
         }
         return null;
     }
 
-    public function lastOrDefault()
+    public function lastOrDefault($expression=null)
     {
         if($this->any()) {
+            if($expression !== null) {
+                return $this->where($expression)->lastOrDefault();
+            }
             return $this->getArrayValues()[$this->count() - 1];
         }
         return null;

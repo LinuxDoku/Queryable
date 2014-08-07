@@ -3,9 +3,8 @@ namespace LinuxDoku\Queryable;
 
 interface QueryableProvider
 {
-    public function count();
-    public function any();
-
+    public function count($expression=null);
+    public function any($expression=null);
 
     public function firstOrDefault($expression=null);
     public function lastOrDefault($expression=null);

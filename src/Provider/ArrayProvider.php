@@ -37,13 +37,19 @@ class ArrayProvider extends BaseProvider
         return $this->arrayValues;
     }
 
-    public function count()
+    public function count($expression=null)
     {
+        if($expression !== null) {
+            return $this->where($expression)->count();
+        }
         return count($this->array);
     }
 
-    public function any()
+    public function any($expression=null)
     {
+        if($expression !== null) {
+            return $this->where($expression)->any();
+        }
         return $this->count() !== 0;
     }
 

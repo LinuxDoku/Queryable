@@ -1,7 +1,6 @@
 <?php
 namespace LinuxDoku\Queryable\Provider;
 
-use ArrayAccess;
 use Countable;
 use Iterator;
 use LinuxDoku\Queryable\QueryableProvider;
@@ -12,6 +11,10 @@ use LinuxDoku\Queryable\QueryableProvider;
  * @package LinuxDoku\Queryable\Provider
  */
 abstract class BaseProvider implements QueryableProvider, Iterator, Countable {
+    /**
+     * Current iterator.
+     * @var int
+     */
     protected $iterator = 0;
 
     /**

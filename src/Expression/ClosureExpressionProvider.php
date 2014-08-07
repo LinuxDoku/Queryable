@@ -1,7 +1,7 @@
 <?php
 namespace LinuxDoku\Queryable\Expression;
 
-class BaseExpression implements Expression {
+class ClosureExpressionProvider implements Expression {
 
     /**
      * Return an iterator which iterates over the collection and

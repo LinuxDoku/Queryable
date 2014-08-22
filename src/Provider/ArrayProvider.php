@@ -4,13 +4,6 @@ namespace LinuxDoku\Queryable\Provider;
 class ArrayProvider extends BaseProvider
 {
     /**
-     * Iterator.
-     *
-     * @var int
-     */
-    protected $iterator = 0;
-
-    /**
      * Array collection.
      *
      * @var array

@@ -5,6 +5,11 @@ use LinuxDoku\Queryable\Provider\ArrayProvider;
 
 class Queryable
 {
+    /**
+     * Array mapping of types to their queryable provider.
+     *
+     * @var array
+     */
     protected static $providerMap = [
         'array' => ArrayProvider::class
     ];
@@ -18,13 +23,15 @@ class Queryable
      */
     public static function create($collection)
     {
+        $collectionType = gettype($collection);
+
         foreach(static::$providerMap as $type => $provider) {
-            if(gettype($collection) === $type) {
+            if($collectionType === $type) {
                 return new $provider($collection);
             }
         }
 
-        throw new Exception(sprintf('No suitable provider found for type "%s"!', gettype($collection)));
+        throw new Exception(sprintf('No suitable provider found for type "%s"!', $collectionType));
     }
 
     /**

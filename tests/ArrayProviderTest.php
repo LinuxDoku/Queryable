@@ -53,7 +53,8 @@ class ArrayProviderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($queryable->lastOrDefault() === 2);
     }
 
-    public function testLastOrDefaultWithExpression() {
+    public function testLastOrDefaultWithExpression()
+    {
         $array = [1, 2, 3];
         $queryable = Queryable::create($array);
         $this->assertEquals($queryable->lastOrDefault(function($values) {
@@ -85,7 +86,8 @@ class ArrayProviderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($result->any());
     }
 
-    public function testIterator() {
+    public function testIterator()
+    {
         $array = [0, 1, 2];
         $queryable = Queryable::create($array);
 

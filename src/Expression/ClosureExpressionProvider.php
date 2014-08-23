@@ -25,43 +25,43 @@ class ClosureExpressionProvider implements Expression {
 
     public function equals($left, $right=null)
     {
-        return $this->conditionalIterator(function($value) use ($left) {
-            return $value === $left;
+        return $this->conditionalIterator(function($value) use ($left, $right) {
+            return Selector::select($value, $right) === $left;
         });
     }
 
     public function notEqual($left, $right=null)
     {
-        return $this->conditionalIterator(function($value) use ($left) {
-            return $value !== $left;
+        return $this->conditionalIterator(function($value) use ($left, $right) {
+            return Selector::select($value, $right) !== $left;
         });
     }
 
     public function greaterThan($left, $right=null)
     {
-        return $this->conditionalIterator(function($value) use ($left) {
-            return $value > $left;
+        return $this->conditionalIterator(function($value) use ($left, $right) {
+            return Selector::select($value, $right) > $left;
         });
     }
 
     public function greaterThanOrEqual($left, $right=null)
     {
-        return $this->conditionalIterator(function($value) use ($left) {
-            return $value >= $left;
+        return $this->conditionalIterator(function($value) use ($left, $right) {
+            return Selector::select($value, $right) >= $left;
         });
     }
 
     public function lessThan($left, $right=null)
     {
-        return $this->conditionalIterator(function($value) use ($left) {
-            return $value < $left;
+        return $this->conditionalIterator(function($value) use ($left, $right) {
+            return Selector::select($value, $right) < $left;
         });
     }
 
     public function lessThanOrEqual($left, $right=null)
     {
-        return $this->conditionalIterator(function($value) use ($left) {
-            return $value <= $left;
+        return $this->conditionalIterator(function($value) use ($left, $right) {
+            return Selector::select($value, $right) <= $left;
         });
     }
 }

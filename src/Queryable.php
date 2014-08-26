@@ -1,6 +1,7 @@
 <?php
 namespace LinuxDoku\Queryable;
 
+use Exception;
 use LinuxDoku\Queryable\Provider\ArrayProvider;
 
 class Queryable
